@@ -12,11 +12,11 @@ import axios from "axios";
 
 function Home() {
   const [data, setData] = useState({
-    celcius: 10,
-    name: "London",
-    humidity: 10,
-    speed: 2,
-    image: "",
+    celcius: 0,
+    name: "City",
+    humidity: 0,
+    speed: 0,
+    image: clouds,
   });
   const [name, setName] = useState();
   const [error, setError] = useState("");
@@ -58,6 +58,7 @@ function Home() {
           speed: res.data.wind.speed,
           image: imagePath,
         });
+        setError("");
       } catch (err) {
         if (err.response.status === 404) {
           setError("Invalid city name");
